@@ -20,5 +20,5 @@ The steps for using SFTP included:
 	- Navigating in the local machine involves prefixing the sftp commands with an l.
 	- For example, while ``ls`` lists files in the sandbox, ``lls`` lists files in the local machine.
 4. Use the ``put`` command to upload necessary files from local machine to the sandbox.
-5. End the sftp session with the ``exit`` command.
+5. End the SFTP session with the ``exit`` command.
 6. The  files are now available for any necessary actions in the sandbox.
