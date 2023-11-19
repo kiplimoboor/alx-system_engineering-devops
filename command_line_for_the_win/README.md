@@ -13,10 +13,12 @@ Since the challenge is done in a local machine, yet the project folders are in a
 
 The steps for using SFTP included:
 
-1. Establish sftp session in the sandbox. To establish the session, use the command ``sftp username@hostname``. Enter the password when prompted.
-2. The hostname, username, and password provided by ALX was used for the project.
-2. Navigate to the directory where the file is to be uploaded. In this case. The directory was */command_line_for_the_win*.
-3. Navigate to the directory with the screenshots in the local machine. Navigating in the local machine involved prefixing the sftp commands with an l. For example, while ``ls`` lists files in the sandbox, ``lls`` lists files in the local machine.
-4. Use the ``put`` command to upload necessary from local machine to the sandbox.
-5. Ending the sftp session with the ``exit`` command.
+1. Establish an SFTP session in the sandbox.
+	- To establish the session, use the command ``sftp username@hostname``. Enter the password when prompted.
+2. Navigate to the directory where the file is to be uploaded in the sandbox.
+3. Navigate to the directory with the screenshots in the local machine.
+	- Navigating in the local machine involved prefixing the sftp commands with an l.
+	- For example, while ``ls`` lists files in the sandbox, ``lls`` lists files in the local machine.
+4. Use the ``put`` command to upload necessary files from local machine to the sandbox.
+5. End the sftp session with the ``exit`` command.
 6. The  files are now available for any necessary actions in the sandbox.
