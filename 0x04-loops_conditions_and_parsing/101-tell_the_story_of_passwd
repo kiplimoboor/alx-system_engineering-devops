@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#displays content of /etc/passwd
+
+filename="/etc/passwd"
+
+while IFS= read -r line
+do
+	username=$(echo "$line" | cut -d: -f1)
+	gid=$(echo "$line" | cut -d: -f4)
+	home=$(echo "$line" | cut -d: -f6)
+	cmd=$(echo "$line" | cut -d: -f7)
+	uid=$(echo "$line" | cut -d: -f3)
+	passwd=$(echo "$line" | cut -d: -f2)
+	info=$(echo "$line" | cut -d: -f5)
+
+
+	echo "The user $username is part of the $gid gang, lives in $home and rides $cmd. $uid's place is protected by the passcode $passwd, more info about the user here: $info"
+done < "$filename"
