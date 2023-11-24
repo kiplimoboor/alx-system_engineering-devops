@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Kills forcefully
+
+pkill -9 -f 7-highlander
