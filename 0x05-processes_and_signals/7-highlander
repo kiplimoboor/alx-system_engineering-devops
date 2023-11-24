@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # This program ignores the SIGTERM command
- 
-# Set a trap for SIGINT and SIGTERM signals
+
 trap "echo I am invincible!!!" SIGTERM
  
 while true
