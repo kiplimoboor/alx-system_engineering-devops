@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Sorts occurences in apache log file
+
+awk '{ print $1 " " $9 }'  apache-access.log | sort -n | uniq -c | sort -nr
