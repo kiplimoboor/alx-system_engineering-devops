@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Prints pid of this script
 
-pidof bash | cut -d ' ' -f1
+echo "$$"
