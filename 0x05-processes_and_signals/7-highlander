@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This program ignores the SIGTERM command
 
-trap "echo I am invincible!!!" SIGTERM
+trap "echo I am invincible!!!" -15
  
 while true
 do
