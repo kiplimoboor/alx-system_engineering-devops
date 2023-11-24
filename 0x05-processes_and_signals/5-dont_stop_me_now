@@ -2,4 +2,4 @@
 # Kills bash process
 # shellcheck disable=SC2009
 
-kill -15 "$(pidof bash | awk '{ print $3 }')"
+kill "$(pgrep -f 4-to_infinity_and_beyond)"
