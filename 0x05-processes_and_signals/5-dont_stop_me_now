@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Kills bash process
+
+kill "$(pidof bash | awk '{ print $3}')"
