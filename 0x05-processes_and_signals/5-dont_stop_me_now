@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Kills bash process
+# shellcheck disable=SC2009
 
-kill "$(pidof bash | awk '{ print $3}')"
+kill "$(ps -au | grep ./4-to_infinity_and_beyond | grep -v grep | awk '{ print $2 }')"
