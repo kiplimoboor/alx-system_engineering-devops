@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#shows attached ipv4 addresses
+
+ifconfig | awk '/inet\s/ { print $2 }'
