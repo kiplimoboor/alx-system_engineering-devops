@@ -1,3 +1,5 @@
+# Creates a file in tmp/school with the parameters shown
+
 file{
     '/tmp/school':
     ensure  => present,
