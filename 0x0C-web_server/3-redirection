@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # Installation and basic nginx configuration
 
-# Installation and getting running
 apt-get update
 apt-get install nginx -y
-ufw enable
-ufw allow 'Nginx HTTP' 
 
-# Configure to serve Hello World
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo chown -R "$USER":"$USER" /var/www/html/
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/
 
-# Configure redirection
-sed -i '/server_name/a\\trewrite ^/redirect_me "https://www.youtube.com/" permanent;' /etc/nginx/sites-available/default 
+echo "Hello World!" > /var/www/html/index.html
+
+sed -i '/listen 80 default_server;/a\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default 
 sudo service nginx restart
+
+service nginx restart
