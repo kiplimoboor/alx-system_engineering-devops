@@ -24,7 +24,7 @@ apt update -y
 apt install nginx -y
 
 echo "Hello World!" > /usr/share/nginx/html/index.html
-echo -en "Ceci n'est pas une page\n\n" > /usr/share/nginx/html/404.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
 
 
 sed -i 's/#error_page/error_page/' /etc/nginx/conf.d/default.conf
