@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Sets up HAProxy
 
 apt purge --autoremove nginx -y
