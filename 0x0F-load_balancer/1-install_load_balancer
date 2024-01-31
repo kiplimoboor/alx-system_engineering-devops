@@ -1,0 +1,24 @@
+#!/bin/bash
+# Sets up HAProxy
+
+apt purge --autoremove nginx -y
+apt purge --autoremove haproxy -y
+
+apt-get install --no-install-recommends software-properties-common -y
+add-apt-repository ppa:vbernat/haproxy-2.6 -y
+
+apt-get install haproxy=2.6.\* -y
+
+echo -e "
+frontend http
+    bind *:80
+    mode http
+    default_backend web-backend
+
+backend web-backend
+    balance roundrobin
+    server web-01 54.197.87.116:80 check
+    server web-02 54.208.69.201:80 check
+" >>/etc/haproxy/haproxy.cfg
+
+service haproxy restart
