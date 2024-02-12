@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 # digs subdomains for details
 
-for sub in 'www' 'lb-01' 'web-01' 'web-02'
-do
+if [ -n "$2" ]
+then
+	sub="$2"
 	dig "$sub.$1" | grep -A1 'ANSWER SECTION:' | \
 		awk -v a="$sub" ' NR==2 {print "The subdomain "a" is a "$4" record and points to "$5}'
-done
+else
+	for sub in 'www' 'lb-01' 'web-01' 'web-02'
+	do
+		dig "$sub.$1" | grep -A1 'ANSWER SECTION:' | \
+			awk -v a="$sub" ' NR==2 {print "The subdomain "a" is a "$4" record and points to "$5}'
+	done
+fi
 
