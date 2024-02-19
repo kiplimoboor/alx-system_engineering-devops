@@ -16,8 +16,9 @@ if __name__ == '__main__':
     name = r.json().get('name')
     r = get(f'{api_link}/todos/?userId={user_id}')
     todos = r.json()
+    filename = f'{user_id}.csv'
 
-    with open('USER_ID.csv', 'w') as csvfile:
+    with open(filename, 'w') as csvfile:
         fieldnames = ['userId', 'name', 'completed', 'title']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         for todo in todos:
