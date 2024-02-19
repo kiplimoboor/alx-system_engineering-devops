@@ -11,8 +11,7 @@ from sys import argv
 if __name__ == "__main__":
     user_id = argv[1]
     api_link = "https://jsonplaceholder.typicode.com"
-    r = get(f"{api_link}/users/{user_id}")
-    name = r.json().get("name")
+    name = get(f"{api_link}/users/{user_id}").json().get("username")
     r = get(f"{api_link}/todos/?userId={user_id}")
     todos = r.json()
     filename = f"{user_id}.csv"
