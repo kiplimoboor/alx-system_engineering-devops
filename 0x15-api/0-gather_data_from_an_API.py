@@ -16,4 +16,4 @@ if __name__ == '__main__':
     todos = r.json()
     print(f'Employee {name} is done with tasks({len(todos)}/20):')
     for todo in todos:
-        print(f'\t{todo.get("title")}')
+        print(f'\t {todo.get("title")}')
