@@ -20,11 +20,12 @@ if __name__ == "__main__":
         id = user.get('id')
         username = user.get('username')
         for todo in todos:
-            user_todos.append({
-                'username': username,
-                'task': todo.get('title'),
-                'completed': todo.get('completed')
-            })
+            if todo.get('userId') == id:
+                user_todos.append({
+                    'username': username,
+                    'task': todo.get('title'),
+                    'completed': todo.get('completed')
+                    })
         all_todos[str(id)] = user_todos
 
     with open(filename, 'w') as jsonfile:
