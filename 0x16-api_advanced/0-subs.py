@@ -1,36 +1,18 @@
 #!/usr/bin/python3
+"""Gets subscriber count of a subreddit"""
 
-"""
-Query a subreddit and return the number of
-total subscribers in that subredit
-"""
-
-from sys import argv
-
-from requests import get
-
-headers = {
-    "User-Agent": "Of course I had to use a custom User-Agent",
-    "X-Forwared-For": "iamthecavalry"
-}
+import requests
 
 
-def number_of_subscribers(subreddit: str) -> int:
+def number_of_subscribers(subreddit):
     """
-    Query the subreddit and return the number of
-    Active subs. If its an invalid subredit, return 0
+        This functions takes in a subreddit name and returns the
+        subscriber count.
+        If the subreddit is nonexistent, return a 0
     """
-    response = get("https://www.reddit.com/r/{}/about.json".format(subreddit),
-                   headers=headers)
-    data = response.json()
-    try:
-        if 'error' in data.keys():
-            return 0
-        else:
-            return data['data']['subscribers']
-    except Exception as e:
+    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    response = requests.get(
+        url, headers={'User-Agent': 'kiplimoboor'}, allow_redirects=False)
+    if response.status_code != 200:
         return 0
-
-
-if __name__ == "__main__":
-    print(number_of_subscribers(argv[1]))
+    return response.json().get('data').get('subscribers')
