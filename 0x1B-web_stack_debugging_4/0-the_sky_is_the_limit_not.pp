@@ -1,13 +1,12 @@
 #!/usr/bin/env puppet
 
-# patch up our nginx webserver to handle
-# a large number of requests
+# increase file limit
 exec { 'fix nginx':
   command => 'sed -i "s/15/4096/" /etc/default/nginx',
   path    => '/usr/local/bin/:/bin/'
 }
 
-# restart Nginx service (nginx.service)
+# restart nginx
 -> exec { 'nginx-restart':
   command => 'nginx restart',
   path    => '/etc/init.d/'
