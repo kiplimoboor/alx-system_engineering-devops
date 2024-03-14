@@ -6,7 +6,7 @@ exec {'increase nofile':
 }
 
 
-exec {'restart nginx':
+-> exec {'restart nginx':
   command => 'service nginx restart',
   path    => ['/bin/', '/usr/bin/'],
   require => Exec['increase nofile']
