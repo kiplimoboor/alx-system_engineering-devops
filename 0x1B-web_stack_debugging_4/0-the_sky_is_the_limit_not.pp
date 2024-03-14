@@ -1,14 +1,14 @@
-# Increase number of open files to be handled by nginx
+#!/usr/bin/env puppet
 
-exec {'increase nofile':
-  command => 'sed -i s/15/4096/ /etc/default/nginx',
-  path    => ['/bin/', '/usr/bin/'],
+# patch up our nginx webserver to handle
+# a large number of requests
+exec { 'fix nginx':
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
 }
 
-
--> exec {'restart nginx':
-  command => 'service nginx restart',
-  path    => ['/bin/', '/usr/bin/'],
-  require => Exec['increase nofile']
+# restart Nginx service (nginx.service)
+-> exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/'
 }
-
